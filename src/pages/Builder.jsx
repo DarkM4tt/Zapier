@@ -19,6 +19,7 @@ import {
   ConditionNode,
   WaitNode,
 } from "../components/nodes";
+import SettingsPanel from "../components/panels/SettingsPanel";
 
 const nodeTypes = {
   [NODE_TYPES.TRIGGER]: TriggerNode,
@@ -109,6 +110,8 @@ const BuilderContent = () => {
             <Controls />
           </ReactFlow>
         </div>
+
+        <SettingsPanel />
       </div>
     </div>
   );
