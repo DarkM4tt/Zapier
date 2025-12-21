@@ -25,6 +25,23 @@ const useFlowStore = create((set, get) => ({
   },
 
   onConnect: (connection) => {
+    const edges = get().edges;
+    const sourceHasOutgoing = edges.some(
+      (edge) => edge.source === connection.source
+    );
+
+    if (sourceHasOutgoing) {
+      alert(
+        "Validation Error: A node can only have one outgoing connection (Linear Workflow)."
+      );
+      return;
+    }
+
+    if (connection.source === connection.target) {
+      alert("Validation Error: Loops are not allowed.");
+      return;
+    }
+
     set({
       edges: addEdge(
         { ...connection, markerEnd: { type: MarkerType.ArrowClosed } },
