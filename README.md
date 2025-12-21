@@ -1,16 +1,67 @@
-# React + Vite
+# ⚡ Zap-Lite | Automation Workflow Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Zap-Lite** is a modern, visual automation workflow builder inspired by tools like Zapier and Make.com. Built with **React** and **React Flow**, it allows users to design linear automation flows via a drag-and-drop interface, configure node properties, and export workflows as JSON.
 
-Currently, two official plugins are available:
+![alt text](image.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Status](https://img.shields.io/badge/Status-Completed-success)
+![Tech](https://img.shields.io/badge/Stack-React_|_Tailwind_|_Zustand-blue)
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🎨 Visual Workflow Builder
 
-## Expanding the ESLint configuration
+- **Drag & Drop Interface:** Easily drag nodes from the sidebar onto the infinite canvas.
+- **Interactive Nodes:** Custom-styled nodes for Triggers, Actions, and Logic.
+- **Zoom & Pan:** Full canvas navigation controls.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+![alt text](image-1.png)
+
+### 🧩 Node Types
+
+- **Start Trigger:** The entry point of every workflow.
+- **Actions:** "Send Message" and "Follow User" nodes.
+- **Logic:** "Condition" nodes for branching logic.
+- **Timing:** "Wait Timer" to add delays.
+
+### ⚙️ Configuration & State
+
+- **Dynamic Settings Panel:** Click any node to edit its specific properties (e.g., Message text, Wait duration) in the right sidebar.
+- **State Management:** Powered by **Zustand** using atomic selectors for high-performance state updates without re-renders.
+
+### 🛡️ Validation & Persistence
+
+- **Linear Workflow Enforcement:** Restricts nodes to one outgoing edge to ensure linear flows.
+- **Data Validation:** Prevents saving if required fields (like phone numbers) are empty.
+- **Save & Export:** Save workflows to LocalStorage or export them as JSON files.
+
+---
+
+## 🛠️ Tech Stack
+
+- **Core:** [React.js](https://react.dev/) (Vite)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Diagramming:** [React Flow](https://reactflow.dev/)
+- **State Management:** [Zustand](https://github.com/pmndrs/zustand)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Routing:** React Router DOM
+- **Utilities:** clsx, tailwind-merge, uuid
+
+---
+
+## 📂 Project Structure
+
+```text
+src/
+├── components/
+│   ├── layout/          # Sidebar, Header, and Page Layouts
+│   ├── nodes/           # Custom React Flow Node Components
+│   ├── panels/          # Configuration/Settings Panel
+│   └── ui/              # Reusable UI elements
+├── constants/           # Node types and initial data
+├── hooks/               # Custom React hooks
+├── lib/                 # Utilities (Validation, ID generation)
+├── pages/               # Dashboard and Builder pages
+├── store/               # Zustand Global Store
+└── App.jsx              # Main Entry & Routing
+```
